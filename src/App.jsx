@@ -7,6 +7,9 @@ import Login from "./routes/auth/login/Login"
 import Register from "./routes/auth/register/Register"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./components/footer/Footer"
+import Cart from "./routes/cart/Cart"
+import SingleProduct from "./routes/single-product/SingleProduct"
 
 
 const App = () => {
@@ -21,7 +24,10 @@ const App = () => {
           <Route path="" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
+        <Route path='/single-product/:id' element={<SingleProduct />} />
       </Routes>
+      <Footer />
     </>
   )
 }

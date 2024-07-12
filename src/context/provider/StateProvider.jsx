@@ -1,14 +1,15 @@
-// import { useReducer } from "react";
-// import AppContext from "../store";
-// import reducer, { initialState } from "../reducer/reducer";
+// const AppProvider = ({ children }) => {
+//   const [state, dispatch] = useReducer(reducer, initialState);
 
+//   useEffect(() => {
+//     localStorage.setItem('cart', JSON.stringify(state.cart));
+//   }, [state.cart]);
 
-// const StateProvider = () => {
 //   return (
-//     <AppContext.Provider value={useReducer(reducer, initialState)}>
+//     <AppContext.Provider value={[state, dispatch]}>
 //       {children}
 //     </AppContext.Provider>
 //   );
 // };
 
-// export default StateProvider;
+// export { AppContext, AppProvider };

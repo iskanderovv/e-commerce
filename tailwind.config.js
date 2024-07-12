@@ -1,19 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        'proxima': ['Proxima Nova Condensed', 'sans-serif'],
-        'poppins': ['Poppins', 'sans-serif']
+        proxima: ["Proxima Nova Condensed", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
+      boxShadow: {
+        "card-shadow": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
       },
       colors: {
-        'darkblack': '#262626'
-      }
+        darkblack: "#262626",
+      },
     },
   },
   plugins: [],
-}
+};
