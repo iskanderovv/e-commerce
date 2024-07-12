@@ -6,9 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      container: {
-        center: true,
-        padding: '20px',
+      fontFamily: {
+        'proxima': ['Proxima Nova Condensed', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif']
+      },
+      colors: {
+        'darkblack': '#262626'
       }
     },
   },

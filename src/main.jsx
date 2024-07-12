@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import StateProvider from './context/provider/StateProvider.js'
+// import StateProvider from './context/provider/StateProvider.jsx'
 import "./locales/i18next.js";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <StateProvider>
+      {/* <StateProvider> */}
         <App />
-      </StateProvider>
+      {/* </StateProvider> */}
     </BrowserRouter>
   </React.StrictMode>,
 )

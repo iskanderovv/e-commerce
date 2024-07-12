@@ -1,1 +1,3 @@
-// * Something else
+export const initialState = {
+  product: null,
+};
