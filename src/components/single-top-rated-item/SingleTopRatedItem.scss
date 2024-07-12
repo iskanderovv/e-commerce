@@ -1,0 +1,16 @@
+.cart-fav-cart{
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  opacity: 90%;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart-hover:hover .cart-fav-cart{
+  display: flex;
+  transition: .5s;
+}

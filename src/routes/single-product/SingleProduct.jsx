@@ -6,6 +6,7 @@ import { useFetch } from '../../hooks/usePostFetch';
 import { ImStarFull, ImStarHalf } from 'react-icons/im';
 import Container from '../../components/container/Container';
 import { AppContext } from "../../context/AppContext";
+import SingleTopRated from "../../components/single-top-rated/SingleTopRated";
 
 const SingleProduct = () => {
   const [state, dispatch] = useContext(AppContext);
@@ -97,6 +98,9 @@ const SingleProduct = () => {
       <div className="mt-12 mb-20 py-9 px-10 rounded-lg bg-[#FAFAFB] ">
         <h4 className="text-[18px] mb-4 text-[#2E90E5] inline-block pb-5 border-b-4 border-[#2E90E5] ">Product Information</h4>
         <p className="text-gray-700 mt-5">{product.description}</p>
+      </div>
+      <div>
+        <SingleTopRated />
       </div>
     </Container>
   );

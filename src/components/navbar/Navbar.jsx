@@ -4,9 +4,13 @@ import { AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import logo from '../../images/logo.svg';
 import Container from "../container/Container";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
 
 const Navbar = () => {
+  const [state, dispatch] = useContext(AppContext);
+  console.log(state);
   return (
     <Container>
       <nav className="flex justify-between py-7">
@@ -18,7 +22,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </Link>
         <Link to='/cart' className="flex items-center gap-1 relative">
-          <span className="absolute -right-2 -top-0 size-5 bg-[#FB7181] border-white border-2 rounded-full flex items-center justify-center text-[10px] text-white font-bold font-poppins ">2</span>
+          <span className="absolute -right-2 -top-0 size-5 bg-[#FB7181] border-white border-2 rounded-full flex items-center justify-center text-[10px] text-white font-bold font-poppins ">{state.cart.length}</span>
           <FiShoppingCart className="text-2xl" />
         </Link>
       </nav>
