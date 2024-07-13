@@ -16,7 +16,7 @@ const Languages = () => {
         i18n.changeLanguage('ru');
         break;
       case 'GB':
-        i18n.changeLanguage('gb');
+        i18n.changeLanguage('en');
         break;
       default:
         break;

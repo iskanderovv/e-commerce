@@ -3,10 +3,12 @@ import Container from "../container/Container"
 import { useFetch } from "../../hooks/usePostFetch";
 import { ImStarHalf } from "react-icons/im";
 import { ImStarFull } from "react-icons/im";
+import { useTranslation } from "react-i18next";
 
 
 const TopRated = () => {
   const [url, setUrl] = useState('/products');
+  const { t } = useTranslation();
   const { data: products } = useFetch(url);
 
   const renderStars = (rating) => {
@@ -25,7 +27,7 @@ const TopRated = () => {
 
   return (
     <Container>
-      <h2 className="font-poppins font-semibold text-darkblack text-4xl text-center mb-14">MOST TOP RATED PRODUCTS</h2>
+      <h2 className="font-poppins font-semibold text-darkblack text-4xl text-center mb-14">{t('topRatedTitle')}</h2>
       <div className="grid grid-cols-3 place-items-center mb-[200px]">
         {products?.filter((product) => product.rating >= 4).slice(0, 3).map((product) => (
           <div key={product.id} className="flex gap-6 items-center ">
