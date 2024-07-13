@@ -10,11 +10,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./components/footer/Footer"
 import Cart from "./routes/cart/Cart"
 import SingleProduct from "./routes/single-product/SingleProduct"
+import ScrollTop from "./components/scroll-top/ScrollTop"
 
 
 const App = () => {
   return (
     <>
+      <ScrollTop />
       <ToastContainer />
       <Languages />
       <Navbar />

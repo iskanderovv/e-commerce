@@ -44,7 +44,7 @@ const Login = () => {
           },
           body: JSON.stringify(formData)
         });
-
+console.log(response);
         if (response.ok) {
           toast.success(t("loginSuccessful"));
           formReset();
