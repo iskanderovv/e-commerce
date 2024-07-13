@@ -8,6 +8,8 @@ import Container from '../../components/container/Container';
 import { AppContext } from "../../context/AppContext";
 import SingleTopRated from "../../components/single-top-rated/SingleTopRated";
 import { useTranslation } from "react-i18next";
+import Loader from 'rsuite/Loader';
+import 'rsuite/Loader/styles/index.css';
 
 const SingleProduct = () => {
   const [state, dispatch] = useContext(AppContext);
@@ -24,7 +26,7 @@ const SingleProduct = () => {
   }, [product]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div style={{ height: '100vh', background: '#f5f5f5', position: 'absolute', top: "0", left: "0", width: "100%" }}>   <Loader content="Loading..." center vertical size="md" /> </div>;
   }
 
   const renderStars = (rating) => {
@@ -56,8 +58,8 @@ const SingleProduct = () => {
   return (
     <Container>
       <div className="flex flex-col lg:flex-row items-center gap-6 mt-20">
-        <div className='max-w-[526px] h-[549px] object-contain'>
-          <img src={product.image} alt={product.name} className="object-contain" />
+        <div className='max-w-[526px] w-full h-[549px] object-contain'>
+          <img src={product.image} alt={product.name} className="object-contain w-[426px] h-[449px]" />
         </div>
         <div className="flex-1">
           <h3 className="text-2xl font-bold mb-4">{product.name}</h3>
