@@ -1,19 +1,18 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 
-// Create the context
+
 const AppContext = createContext();
 
-// Initial state
+
 const initialState = {
   cart: JSON.parse(localStorage.getItem('cart')) || [],
 };
 
-// Reducer function
 const appReducer = (state, action) => {
   let updatedCart;
   switch (action.type) {
     case 'ADD_TO_CART': {
-      const { id, quantity = 1 } = action.payload; // Default quantity to 1
+      const { id, quantity = 1 } = action.payload;
       const existingProduct = state.cart.find(product => product.id === id);
 
       if (existingProduct) {
@@ -52,7 +51,7 @@ const appReducer = (state, action) => {
   }
 };
 
-// AppProvider component
+
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
