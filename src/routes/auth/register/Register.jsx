@@ -59,11 +59,11 @@ const Register = () => {
           body: JSON.stringify({
             ...formData
           })
-        })
+        });
 
         if (response.ok) {
           toast.success(t("registerSuccessful"));
-          setBtnLoader(true)
+          setBtnLoader(true);
           formReset();
           navigate('/auth');
 
@@ -79,8 +79,6 @@ const Register = () => {
     }
     postRegister();
   };
-
-
 
   return (
     <div className='flex items-center flex-col justify-center my-[200px]'>
@@ -114,15 +112,15 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         {[
-          { label: t("registerName"), name: t("registerName") },
-          { label: t("registerEmail"), name: t('registerEmail'), type: 'email' },
-          { label: t("registerPassword"), name: t('registerPassword'), type: 'password' },
-          { label: t("registerPhone"), name: t('registerPhone'), type: 'number' },
-          { label: t("registerStreet"), name: t('registerStreet') },
-          { label: t("registerApartment"), name: t('registerApartment') },
-          { label: t("registerZip"), name: t('registerZip'), type: 'number' },
-          { label: t("registerCity"), name: t('registerCity') },
-          { label: t("registerCountry"), name: t('registerCountry') },
+          { label: t("registerName"), name: 'name' },
+          { label: t("registerEmail"), name: 'email', type: 'email' },
+          { label: t("loginPassword"), name: 'password', type: 'password' },
+          { label: t("registerPhone"), name: 'phone', type: 'number' },
+          { label: t("registerStreet"), name: 'street' },
+          { label: t("registerApartment"), name: 'apartment' },
+          { label: t("registerZip"), name: 'zip', type: 'number' },
+          { label: t("registerCity"), name: 'city' },
+          { label: t("registerCountry"), name: 'country' },
         ].map((field) => (
           <div key={field.name}>
             <div className='pb-3.5 text-[#333333]'>{field.label}</div>
@@ -150,7 +148,7 @@ const Register = () => {
           {btnLoader ? t("register") + '...' : t("register")}
         </Button>
       </Box>
-      <Typography component='p' sx={{ mt: '22px' }} className='text-[#828282]'> {t("registerQuestion")}? <Link to='/auth' className='text-black'>{t("loginHere")}.</Link></Typography>
+      <Typography component='p' sx={{ mt: '22px' }} className='text-[#828282]'> {t("registerQuestion")} <Link to='/auth' className='text-black'>{t("loginHere")}.</Link></Typography>
     </div>
   );
 }
