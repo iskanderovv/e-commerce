@@ -25,12 +25,14 @@
   "singleProductTwitter": "Share on Twitter",
   "singleProductInformationTitle": "Product Infomation",
   "cartProduct":"Product",
+  "backToHome": "Back to Home",
   "cartPrice":"Price",
   "cartQuantity":"QTY",
   "cartUintPrice":"Unit Price",
   "cartSubtotal":"Subtotal",
   "cartShippingFee": "Shipping fee",
   "cartCoupon": "Coupon",
+  "hasCoupon": "No",
   "cartTotal": "Total",
   "cartCheckOut": "Check out",
   "cartEmpty": "There are currently no products added to the cart!!!",
@@ -54,5 +56,11 @@
   "registerBtn": "Register",
   "registerQuestion": "Already have an account?",
   "loginHere": "Login here",
-  "mostTopProductRates": "MOST TOP RATED PRODUCTS"
+  "mostTopProductRates": "MOST TOP RATED PRODUCTS",
+  "loginSuccessful": "Login successful",
+  "loginFailed": "Login failed",
+  "invalidEmailOrPassword": "Invalid email or password",
+  "plsTryAgain": "Please try again!",
+  "registerSuccessful": "Registration successful",
+  "registerFailed": "Registration failed"
 }

@@ -3,9 +3,11 @@ import { useContext } from "react";
 import Container from "../../components/container/Container";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Cart = () => {
   const [state, dispatch] = useContext(AppContext);
+  const {t} = useTranslation();
 
   const handleRemoveItem = (index) => {
     dispatch({ type: 'REMOVE_ITEM', payload: index });
@@ -23,10 +25,8 @@ const Cart = () => {
     <Container>
       {state.cart.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="font-poppins text-3xl font-bold mb-5">There are currently no products added to the cart!!!</h1>
-          <Link to="/" className="bg-[#33A0FF] text-white px-5 rounded-md py-2">
-            Bosh sahifa
-          </Link>
+          <h1 className="font-poppins text-3xl font-bold mb-5">{t("cartEmpty")}</h1>
+          <Link to="/" className="bg-[#33A0FF] text-white px-5 rounded-md py-2">{t("backToHome")} </Link>
         </div>
       ) : (
         <div>
@@ -34,10 +34,10 @@ const Cart = () => {
             <table className="min-w-full bg-white">
               <thead>
                 <tr className="border-b-2">
-                  <th className="py-5 ps-12 text-darkblack text-left uppercase">Product</th>
-                  <th className="py-5 text-darkblack text-center uppercase">Price</th>
-                  <th className="py-5 text-darkblack uppercase">Qty</th>
-                  <th className="py-5 text-darkblack text-center uppercase">Unit Price</th>
+                  <th className="py-5 ps-12 text-darkblack text-left uppercase">{t("cartProduct")}</th>
+                  <th className="py-5 text-darkblack text-center uppercase">{t("cartPrice")}</th>
+                  <th className="py-5 text-darkblack uppercase">{t("cartQuantity")}</th>
+                  <th className="py-5 text-darkblack text-center uppercase">{t("cartUintPrice")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,22 +79,22 @@ const Cart = () => {
             <div className="flex justify-end mt-[90px] mb-[156px]">
               <div className="mt-4 max-w-[490px] w-full">
                 <div className="flex justify-between items-center text-darkblack">
-                  <span>Subtotal</span>
+                  <span>{t("cartSubtotal")}</span>
                   <span>${state.cart.reduce((acc, product) => acc + product.price * product.quantity, 0).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Shipping fee</span>
+                  <span>{t("cartShippingFee")}</span>
                   <span>$20</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>Coupon</span>
-                  <span>No</span>
+                  <span>{t("cartCoupon")}</span>
+                  <span>{t("hasCoupon")}</span>
                 </div>
                 <div className="flex justify-between items-center font-bold text-xl mt-2">
-                  <span>Total</span>
+                  <span>{t("cartTotal")}</span>
                   <span>${(state.cart.reduce((acc, product) => acc + product.price * product.quantity, 0) + 20).toFixed(2)}</span>
                 </div>
-                <button className="w-full bg-blue-500 text-white py-3 rounded mt-4">Check out</button>
+                <button className="w-full bg-blue-500 text-white py-3 rounded mt-4"> {t("cartCheckOut")} </button>
               </div>
             </div>
           </div>

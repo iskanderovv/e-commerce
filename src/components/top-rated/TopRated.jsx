@@ -4,6 +4,7 @@ import { useFetch } from "../../hooks/usePostFetch";
 import { ImStarHalf } from "react-icons/im";
 import { ImStarFull } from "react-icons/im";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 
 const TopRated = () => {
@@ -30,7 +31,7 @@ const TopRated = () => {
       <h2 className="font-poppins font-semibold text-darkblack text-4xl text-center mb-14">{t('topRatedTitle')}</h2>
       <div className="grid grid-cols-3 place-items-center mb-[200px]">
         {products?.filter((product) => product.rating >= 4).slice(0, 3).map((product) => (
-          <div key={product.id} className="flex gap-6 items-center ">
+          <Link to={`/single-product/${product.id}`} key={product.id} className="flex gap-6 items-center ">
             <img className="w-[152px] h-[152px] object-contain" src={product.image} alt="" />
             <div>
               <h4 className="text-[22px] text-darkblack ">{product.name}</h4>
@@ -40,7 +41,7 @@ const TopRated = () => {
                 <p className="text-[#5D656B]  line-through ">{product.price}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </Container>

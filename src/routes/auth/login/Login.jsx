@@ -5,9 +5,11 @@ import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [btnLoader, setBtnLoader] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -44,15 +46,15 @@ const Login = () => {
         });
 
         if (response.ok) {
-          toast.success('Login successful');
+          toast.success(t("loginSuccessful"));
           formReset();
           navigate('/');
         } else {
-          throw new Error("Login failed");
+          throw new Error(t("loginFailed"));
         }
       } catch (error) {
         console.error(error);
-        toast.error(error.message === "Login failed" ? "Invalid email or password!" : "Login failed. Please try again!");
+        toast.error(error.message === t("loginFailed") ? t("invalidEmailOrPassword") : t("loginFailed") + ' ' + t("plsTryAgain"));
       } finally {
         setBtnLoader(false);
       }
@@ -70,14 +72,14 @@ const Login = () => {
             fontWeight: 500,
             color: '#333333',
           }}>
-          Login
+          {t("login")}
         </Typography>
         <Typography
           component='p'
           sx={{
             color: '#828282',
           }}>
-          Enter your credentials to access your account.
+          {t("loginSubTitle")}
         </Typography>
       </Box>
       <Box
@@ -90,7 +92,7 @@ const Login = () => {
         autoComplete="off"
       >
         <div>
-          <div className='pb-3.5 text-[#333333]'>Email Address</div>
+          <div className='pb-3.5 text-[#333333]'>{t("loginEmail")}</div>
           <TextField
             onChange={handleChange}
             name="email"
@@ -102,8 +104,8 @@ const Login = () => {
         </div>
         <div>
           <div className='max-w-[419px] mt-7 pb-3.5 text-[#333333] flex justify-between'>
-            <p>Password</p>
-            <Link to='' className='text-[#2F80ED] '>Forgot Password?</Link>
+            <p>{t("loginPassword")}</p>
+            <Link to='' className='text-[#2F80ED] '>{t("forgotPassword")}</Link>
           </div>
           <TextField
             onChange={handleChange}
@@ -112,7 +114,7 @@ const Login = () => {
             id="outlined-size-small"
             size="small"
             type='password'
-            placeholder='Password'
+            placeholder={t("loginPassword")}
           />
         </div>
 
@@ -126,11 +128,11 @@ const Login = () => {
             fontSize: '20px',
             mt: '40px',
           }}>
-          {btnLoader ? "Login..." : "Login"}
+          {btnLoader ? t("login") + '...' : t("login")}
         </Button>
       </Box>
       <Typography component='p' sx={{ mt: '22px' }} className='text-[#828282]'>
-        Don’t have an account? <Link to='/auth/register' className='text-black'>Register here.</Link>
+        {t("loginQuestion")} <Link to='/auth/register' className='text-black'>{t("regiserHere")}</Link>
       </Typography>
     </div>
   )

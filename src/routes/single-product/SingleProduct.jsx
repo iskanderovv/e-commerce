@@ -7,6 +7,7 @@ import { ImStarFull, ImStarHalf } from 'react-icons/im';
 import Container from '../../components/container/Container';
 import { AppContext } from "../../context/AppContext";
 import SingleTopRated from "../../components/single-top-rated/SingleTopRated";
+import { useTranslation } from "react-i18next";
 
 const SingleProduct = () => {
   const [state, dispatch] = useContext(AppContext);
@@ -14,6 +15,7 @@ const SingleProduct = () => {
   const [url, setUrl] = useState(`products/${id}`);
   const { data: product } = useFetch(url);
   const [quantity, setQuantity] = useState(1);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (product) {
@@ -71,12 +73,12 @@ const SingleProduct = () => {
               <p className="text-red-500 font-bold">24% off</p>
             </div>
           </div>
-          <div className="mb-[155px] grid grid-cols-2 max-w-[500px]">
-            <p>Availability: </p>
-            <p>In stock: {product.countInStock}</p>
-            <p>Brand: {product.brand}</p>
-            <p>Accessories</p>
-            <p>Free shipping</p>
+          <div className="mb-[90px] grid grid-cols-2 max-w-[500px]">
+            <p>{t("singleProductAvailability")}: </p>
+            <p>{t("singleProductInStock")}: {product.countInStock}</p>
+            <p>{t("singleProductCategory")}: {product.brand}</p>
+            <p>{t("singleProductAccessories")}</p>
+            <p>{t("singleProductFreeShipping")}</p>
           </div>
           <div className="flex items-center justify-between gap-4 mb-4 border-[#F6F7F8] py-5 border-y-2 ">
             <div className='bg-[#F6F7F8] flex items-center rounded-md'>
@@ -85,18 +87,18 @@ const SingleProduct = () => {
               <button className="text-[#33A0FF] text-xl px-5 font-bold py-2 rounded" onClick={handleIncreaseQuantity}>+</button>
             </div>
             <div className="flex gap-5">
-              <button className="bg-[#ebf6ff] text-[#33A0FF] px-7 py-2 rounded flex gap-2 items-center" onClick={handleAddToCart}><AiOutlineShoppingCart /> Add To Cart</button>
+              <button className="bg-[#ebf6ff] text-[#33A0FF] px-7 py-2 rounded flex gap-2 items-center" onClick={handleAddToCart}><AiOutlineShoppingCart /> {t("AddToCartBtn")} </button>
               <button className="bg-[#ebf6ff] text-[#33A0FF] px-4 py-2 rounded flex gap-2 items-center"><MdFavoriteBorder /></button>
             </div>
           </div>
           <div className="flex gap-4">
-            <button className="bg-[#385C8E] text-white w-full px-4 py-2 rounded">Share on Facebook</button>
-            <button className="bg-[#03A9F4] text-white w-full px-4 py-2 rounded">Share on Twitter</button>
+            <button className="bg-[#385C8E] text-white w-full px-4 py-2 rounded"> {t("singleProductTwitter")} </button>
+            <button className="bg-[#03A9F4] text-white w-full px-4 py-2 rounded"> {t("singleProductInformationTitle")} </button>
           </div>
         </div>
       </div>
       <div className="mt-12 mb-20 py-9 px-10 rounded-lg bg-[#FAFAFB] ">
-        <h4 className="text-[18px] mb-4 text-[#2E90E5] inline-block pb-5 border-b-4 border-[#2E90E5] ">Product Information</h4>
+        <h4 className="text-[18px] mb-4 text-[#2E90E5] inline-block pb-5 border-b-4 border-[#2E90E5] "> {t("singleProductInformationTitle")} </h4>
         <p className="text-gray-700 mt-5">{product.description}</p>
       </div>
       <div>
