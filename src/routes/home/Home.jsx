@@ -7,7 +7,7 @@ import Products from '../products/Products'
 const Home = () => {
   return (
     <div>
-      <img src={hero} className='h-[663px]' alt="hero img" />
+      <img src={hero} className='h-[663px] w-full' alt="hero img" />
       <Products />
       <Sneakers />
       <Services />
